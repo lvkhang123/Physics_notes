@@ -1,0 +1,185 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{mhchem}
+\usepackage{cancel}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{PHYS 428 Notes}
+\fancyhead[R]{\thepage}
+
+% Custom Commands
+\newcommand{\concept}[1]{\subsection*{\textcolor{blue}{Concept: #1}}}
+\newcommand{\definition}[1]{\subsubsection*{\textcolor{teal}{Definition: #1}}}
+\newcommand{\example}[1]{\paragraph{\textcolor{purple}{Example:}} #1}
+\newcommand{\summary}{\section*{\textcolor{red}{Summary}}}
+\newenvironment{keypoints}{\paragraph{\textbf{Key Points:}}\begin{itemize}[label=--]}{\end{itemize}}
+
+% Title
+\title{\textbf{Relativity Notes}}
+\author{Khang Ly}
+\date{Monday, February 24th, 2025}
+
+\begin{document}
+	
+	\maketitle
+	\tableofcontents
+	\newpage
+	
+	\section{Review}
+	
+	\begin{itemize}
+		\item Minkowski Space
+		\subitem 4 dimensions 
+		\subitem 4-vector ($\vec{R}$)
+		
+		\begin{equation*}
+			(x, y, z, ct);\hspace{3em}ds^2 = c^2dt^2 - dx^2 - dy^2 - dz^2
+		\end{equation*}
+		
+		\subsubitem $ds^2$ is called "\textbf{metric}"
+		
+		\item Euclidean Space 
+		\subitem Distance between two points 
+		
+		\begin{equation*}
+			dr^2 = dx^2 + dy^2 + dz^2
+		\end{equation*}
+		
+		\subitem 3 vectors (\textbf{$\vec{r}$}), anything that transform like a displacement vector is define to be a vector. 
+		
+		\subsubitem Scalar = scalar ($S_1 = S_2\rightarrow S_1^{\prime} = S_2^{\prime}$)
+		\subsubitem Vector = vector ($\vec{a} = \vec{b}\rightarrow \vec{a}^{\prime} = \vec{b}^{\prime}$)
+		
+		$$\frac{d\vec{a}}{ds}\hspace{1em}\text{is a \textbf{vector}}$$		
+		
+		\begin{align*}
+			a &= |\vec{a}|\\
+			\vec{a} &= (a_1, a_2, a_3)\\
+			a^2 &= a_1^2 + a_2^2 + a_3^2 \hspace{1em}(\text{must be a \textbf{scalar}})\\
+			\vec{a}\cdot\vec{b} &= a_1b_1 + a_2b_2 + a_3b_3\\
+		\end{align*}
+		
+		\subsection{Lorentz Transformation}
+		
+		\begin{align*}
+			x^{\prime} &= \gamma(x - \beta ct)\\
+			y^{\prime} &= y\\
+			z^{\prime} &= z\\
+			ct^{\prime} &= \gamma(ct - \beta x)\\
+		\end{align*}
+		
+		$$\begin{pmatrix}
+			x^{\prime}\\
+			y^{\prime}\\
+			z^{\prime}\\
+			ct^{\prime}\\
+		\end{pmatrix} = \begin{pmatrix}
+		\gamma & 0 & 0 & -\gamma\beta\\
+		0 & 1 & 0 & 0\\
+		0 & 0 & 1 & 0\\
+		-\gamma\beta & 0 & 0 & \gamma\\
+		\end{pmatrix}\begin{pmatrix}
+		x\\
+		y\\
+		z\\
+		ct\\
+		\end{pmatrix}$$
+		
+	\end{itemize}
+	
+	\section{4-vector}
+	
+	\begin{align*}
+		\vec{A} &= (A_1, A_2, A_3, A_4)\\
+		\vec{A}^2 &= (A_4^2 - A_1^2 - A_2^2 - A_3^2)\\
+		\vec{A}\cdot\vec{B} &= A_4B_4 - A_1B_1 - A_2B_2 - A_3B_3\hspace{1em}\textbf{scalar}\\
+		f &= (\vec{A} + \vec{B})^2 - \vec{A}^2 -\vec{B}^2\\
+		f &= (A_4 + B_4)^2 - (A_1 + B_1)^2 - (A_2 + B_2)^2 - (A_3 + B_3)^2 - (A_4^2 - A_3^2 -A_2^2 - A_1^2) - (B_4^2 - B_3^2 - B_2^2 - B_1^2)\\
+		f &= 2(A_4B_4 - A_1B_1 - A_2B_2 - A_3B_3)\\  
+	\end{align*}
+	
+	\subsection{Minkowski Space \textit{Cont.}}
+	
+	Define $d\tau^2 \equiv \frac{dx^2}{c^2} = dt^2 - \frac{(dx^2 + dy^2 + dz^2)}{c^2}$
+	
+	\begin{itemize}
+		\item $d\tau^2$ is the interval of proper time $\rightarrow$ Particle moving at $\vec{u}$ \textbf{$dt = \gamma(u)d\tau$} 
+	\end{itemize}
+	
+	\subsubsection{4-velocity}
+	
+	$$\underset{\text{4-space velocity}}{\vec{U}} = \frac{d\vec{R}}{d\tau} = \text{4-vector} = \left(\frac{dx}{d\tau}, \frac{dy}{d\tau}, \frac{dz}{d\tau}, \frac{d(ct)}{d
+	\tau}\right)$$
+	$$\frac{dx}{d\tau} = \frac{dx}{dt}\frac{dt}{d\tau}$$
+	$$\vec{U} = \gamma(u)(\vec{u}, c) = \gamma(u)(u_x, u_y, u_z, c)$$
+	$$\vec{U} = (\gamma(u)\vec{U} , \gamma(u)c)$$
+	
+	\subsubsection{4-acceleration}
+	
+	$$\vec{A} = \frac{d\vec{U}}{d\tau} = \frac{d\vec{U}}{dt}\frac{dt}{d\tau}$$
+	$$\vec{A} = \gamma\frac{d\vec{U}}{dt} = \gamma(u)\left[\frac{d}{dt}\left(\gamma\vec{u}\right), \frac{d}{dt}(\gamma c)\right]$$
+	$$\vec{A} = \gamma\left(\frac{d\gamma}{dt}\vec{u} + \gamma\frac{d\vec{u}}{dt}, c\frac{d\gamma}{dt}\right)$$
+	$$\vec{A} = \gamma(\gamma^{\prime}\vec{u} + \gamma\vec{a}, \gamma^{\prime}c)$$
+	$$\vec{A} = \gamma^{\prime} = \frac{d\gamma}{dt}$$
+	
+	\subsubsection{Instantaneous rest frame}
+	
+	\begin{align*}
+		\vec{u} &= 0 \rightarrow \gamma(u) = 1\\
+		\vec{U} &= (\vec{0}, c)
+ 	\end{align*}
+ 	
+ 	$$\vec{A} = ?$$
+ 	$$\gamma^{\prime} = \frac{d\gamma}{dt} = \frac{d}{dt}\left(1 - \frac{u^2}{c^2}\right)^{-\frac{1}{2}} = \left(1 - \frac{u^2}{c^2}\right)^{-\frac{3}{2}}\frac{u}{c^2}\frac{du}{dt} = 0$$
+ 	$$\boxed{\vec{A} = (\vec{a} , 0)}$$
+
+ 	\begin{align*}
+ 		\vec{U}^2 &= \gamma^2(c^2 - u^2)\\
+ 		\vec{U}^2 &= \gamma^2c^2\left(1 - \frac{u^2}{c^2}\right)\\
+ 		\vec{U}^2 &= \gamma^2c^2\frac{1}{\gamma^2}\\
+ 		\vec{U}^2 &= \cancel{\gamma^2}c^2\frac{1}{\cancel{\gamma^2}}\\
+ 		\vec{U}^2 &= c^2\\
+ 	\end{align*}
+ 	
+	$$\boxed{\vec{U}^2 = c^2 \hspace{0.5em}\textbf{(scalar)}}$$
+	
+	\begin{itemize}
+		\item Define $\vec{A}^2 = -\alpha^2$ where $\alpha^2$ is the "\textbf{proper acceleration}"
+	\end{itemize}
+	
+	\section{Sample problems}
+	
+	The dot product between $\vec{U}$ and $\vec{A}$, given $\vec{U} = (\vec{0}, c)$ and $\vec{A} = (\vec{a}, 0)$, is:
+	
+	$$\vec{U}\cdot\vec{A} = c*0 - 0*a = 0$$
+	
+	\subsection{Problem 1}
+	
+	Use the fact that $U = \gamma(\vec{u}, c)$ transforms as a 4-vector to rederive the velocity addition formula and the following transformation formula for $\gamma: \gamma(u^{\prime}) = \gamma(u)\gamma(v)(1 - u_xv/c^2)$ 
+	
+	
+	$$\vec{U} = (\gamma(u)u_x, \gamma(u)u_y, \gamma(u)u_z, \gamma(u)c)$$
+	$$\vec{U}^{\prime} = (\gamma(u^{\prime})u_x^{\prime}, \gamma(u^{\prime})u_y^{\prime}, \gamma(u^{\prime})u_z^{\prime}, \gamma(u^{\prime})c)$$
+	
+	\begin{align*}
+		\vec{A} &= (A_1, A_2, A_3, A_4)\\
+		\vec{A_1}^{\prime} &= \gamma(v)(A_1 - \beta A_4)\\
+		\vec{A_2}^{\prime} &= A_2\\
+		\vec{A_3}^{\prime} &= A_3\\
+		\vec{A_4}^{\prime} &= \gamma(v)(A_4 - \beta A_1)\\
+	\end{align*}
+	
+\end{document}
